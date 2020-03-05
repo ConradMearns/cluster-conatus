@@ -39,7 +39,7 @@ mkdir /var/log/couchdb/
 sudo chown couchdb:couchdb /var/log/couchdb
 
 
-cls
+
 
 echo "Configure for first time run"
 echo "Please edit /home/couchdb/etc/local.ini and modify the lines"
@@ -47,13 +47,21 @@ echo "#bind_address = 127.0.0.1"
 echo "Add an admin account"
 echo 
 
+read -n 1 -s -r -p "Press any key to start CouchDB"
+clear
+sudo -i -u couchdb /home/couchdb/bin/couchdb &
+clear
+echo
+echo "CouchDB is running in the background"
+echo
+
 echo "Verify the installation at "
-echo "http://$(hostanme).local:5984/_utils/"
+echo "http://$(hostname).local:5984/_utils/"
 echo
 
 
 
-echo "Navigate to http://$(hostanme).local:5984/_utils/#/_config"
+echo "Navigate to http://$(hostname).local:5984/_utils/#/_config"
 echo "Add the following under Add Option"
 echo "Section: log"
 echo "Name: file"
