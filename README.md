@@ -44,7 +44,19 @@ curl -X DELETE "http://xxx.xxx.xxx.xxx/_node/_local/_nodes/node2@yyy.yyy.yyy.yyy
 
 
 # Serf Requirements
-Download (https://www.serf.io/downloads.html)
+
+When Serf is fixed (or to try and fix it) use
+```sh
+sudo apt install go gox
+go get -u github.com/hashicorp/serf
+cd go/src/github.com/hashicorp/serf/
+make bin
+cd go/src/github.com/hashicorp/serf/pkg/linux_arm/serf /usr/local/bin/serf
+```
+
+--Download (https://www.serf.io/downloads.html)--
+
+At the time of writing, serf is up-to-date and broken for the mdns discovery feature
 
 Install to /usr/local/bin/serf
 
@@ -57,3 +69,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable serf.service
 sudo systemctl start serf.service
 ```
+
+Congigure serf to use a specific IP for the cluter
