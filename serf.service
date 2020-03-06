@@ -1,0 +1,17 @@
+[Unit]
+Description=Serf Agent
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+# Ensure the configuration directory existss
+ExecStartPre=/usr/bin/install -d -g root -o root /etc/serf/
+ExecStartPre=/usr/local/bin/serf agent -config-dir=/etc/serf/
+# USe SIGINT instead of SIGTERM for clean depart
+KillSignal=SIGINT
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
