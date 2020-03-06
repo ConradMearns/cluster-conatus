@@ -41,3 +41,19 @@ curl "http://xxx.xxx.xxx.xxx/_node/_local/_nodes/node2@yyy.yyy.yyy.yyy"
 (Get _rev)
 curl -X DELETE "http://xxx.xxx.xxx.xxx/_node/_local/_nodes/node2@yyy.yyy.yyy.yyy?rev=1-967a00dff5e02add41820138abb3284d"
 ```
+
+
+# Serf Requirements
+Download (https://www.serf.io/downloads.html)
+
+Install to /usr/local/bin/serf
+
+Add service file to /lib/systemd/system/
+```sh
+sudo cp serf.service /lib/systemd/system/
+sudo chmod 644 /lib/systemd/system/serf.service
+sudo systemctl daemon-reload
+
+sudo systemctl enable serf.service
+sudo systemctl start serf.service
+```
