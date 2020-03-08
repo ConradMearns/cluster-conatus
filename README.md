@@ -12,6 +12,13 @@ Just trying some things out here
 -name hostname@hostname.local
 ```
 
+CORS needs to be installed for PouchDB to work. Ensure nodejs and npm are installed first
+```sh
+sudo apt install nodejs npm
+npm i -g add-cors-to-couchdb
+sudo -u couchdb add-cors-to-couchdb
+```
+
 Log settings get added to local.ini - they look like this
 
 ```
