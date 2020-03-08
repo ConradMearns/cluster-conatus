@@ -15,7 +15,7 @@ Just trying some things out here
 CORS needs to be installed for PouchDB to work. Ensure nodejs and npm are installed first
 ```sh
 sudo apt install nodejs npm
-npm install npm@latest -g
+sudo npm install npm@latest -g
 npm i -g add-cors-to-couchdb
 sudo -u couchdb add-cors-to-couchdb
 ```
